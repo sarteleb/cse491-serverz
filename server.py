@@ -13,11 +13,17 @@ print 'The Web server URL for this would be http://%s:%d/' % (host, port)
 
 s.listen(5)                 # Now wait for client connection.
 
+#httpcode = '''<\HTTP/1.0 200 OK> \r\nContent-Type: text/html \r\n <html>
+#\r\n<body> \r\n<h1>Hello World</h1> \r\n This is sarteleb's web server
+#\r\n</body> \r\n</html>\r\n'''
+
+
 print 'Entering infinite loop; hit CTRL-C to exit'
 while True:
-    # Establish connection with client.    
-    c, (client_host, client_port) = s.accept()
-    print 'Got connection from', client_host, client_port
-    c.send('Thank you for connecting')
-    c.send("good bye.")
-    c.close()
+#    Establish connection with client.    
+        c, (client_host, client_port) = s.accept()
+        print c.recv(1000)
+        print 'Got connection from', client_host, client_port
+        c.send('HTTP/1.0 200 OK\nContent-Type: text/html\n\n')
+        c.send('<h1>Hello World!</h1> this is sarteleb\'s web server.')
+        c.close()
