@@ -21,6 +21,8 @@ while True:
     print    
     c.send('HTTP/1.0 200 OK\r\n')
     c.send('Content-Type: text/html\r\n\r\n')
+    # @comment Its generally considered better practice to add
+    # in the <html> and <body> tags but the code is functional
     c.send("<h1>Hello, world</h1> this is suhkang's Web server.")
     c.close()
 
