@@ -6,3 +6,7 @@
  * added a message header saying Hello World
  * added a body containing the server owner's name
  * added a princ.c.recv(1000) line to add more info 
+ * added a function to handle connection
+ * added a main function to handle server work
+ * added links for the content, file, and image page
+ * added support for POST requests
