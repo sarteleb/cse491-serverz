@@ -10,3 +10,7 @@
  * added a main function to handle server work
  * added links for the content, file, and image page
  * added support for POST requests
+ * added support for GET requests
+ * added submit dialog boxes
+ * added request dialog boxes
+ * refactored main server.py function
