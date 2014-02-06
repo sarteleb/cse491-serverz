@@ -14,3 +14,6 @@
  * added submit dialog boxes
  * added request dialog boxes
  * refactored main server.py function
+ * Added support for multi/form post requests
+ * Fixed code to work with arbirtrary size requests
+ * Implemented jinja2 templates to handle html code
