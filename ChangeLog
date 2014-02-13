@@ -10,3 +10,6 @@
  * added a main function to handle server work
  * added links for the content, file, and image page
  * added support for POST requests
+ * added support from multi/form data posts
+ * added html tempaltes inherited form a base.html
+ * refactored for WSGI
