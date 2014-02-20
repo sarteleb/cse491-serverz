@@ -36,9 +36,11 @@ def simple_app(environ, start_response):
             status = '200 OK'
             ret = handle_content(environ, env)
         elif url_path == '/file':
+            headers = [('Content-type', 'text/plain')]
             status = '200 OK'
             ret = handle_file(environ, env)
         elif url_path == '/image':
+            headers = [('Content-type', 'image/jpeg')]
             status = '200 OK'
             ret = handle_image(environ, env)
         elif url_path == '/form':
@@ -59,10 +61,10 @@ def handle_content(parameters, env):
     return str(env.get_template("content.html").render())
 
 def handle_file(parameters, env):
-    return str(env.get_template("file.html").render())
+    return read_file('./files/something.txt')         
 
 def handle_image(parameters, env):
-    return str(env.get_template("image.html").render())
+    return read_file('./images/something.jpeg')        
 
 def handle_form(parameters, env):
     return str(env.get_template("form.html").render())
@@ -102,6 +104,12 @@ def handle_submit_get(environ, env):
 
 def handle_no_page(parameters, env):
     return str(env.get_template("404.html").render())
+
+def read_file(file_name):
+    fp = open(file_name, 'rb')
+    read_in = fp.read()
+    fp.close()
+    return read_in
 
 def make_app():
     return simple_app
