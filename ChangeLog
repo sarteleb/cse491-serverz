@@ -13,4 +13,6 @@
  * added support from multi/form data posts
  * added html tempaltes inherited form a base.html
  * refactored for WSGIus Brown  <t@Titus-MacBook-Air-2.local>
+ * Added a file output and a jpeg image output 
+ * Added Quixote demo apps
 

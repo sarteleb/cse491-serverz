@@ -51,20 +51,16 @@ def test_handle_connection_file():
 
     server.handle_connection(conn)
 
-    assert 'HTTP/1.0 200' in conn.sent and 'file' in conn.sent, \
+    assert 'HTTP/1.0 200' in conn.sent and 'text/plain' in conn.sent, \
     'Got: %s' % (repr(conn.sent),)
 
 # Test path = /content
 def test_handle_connection_image():
     conn = FakeConnection("GET /image HTTP/1.0\r\n\r\n")
-    expected_return = 'HTTP/1.0 200 OK\r\n' + \
-                      'Content-type: text/html\r\n' + \
-                      '\r\n' + \
-                      '<h1>Welcome to sarteleb\'s image page</h1>' 
 
     server.handle_connection(conn)
     print conn.sent
-    assert 'HTTP/1.0 200' in conn.sent and 'image' in conn.sent, \
+    assert 'HTTP/1.0 200' in conn.sent and 'image/jpeg' in conn.sent, \
     'Got: %s' % (repr(conn.sent),)
 
 # Test path = /submit
