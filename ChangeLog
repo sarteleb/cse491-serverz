@@ -15,4 +15,10 @@
  * refactored for WSGIus Brown  <t@Titus-MacBook-Air-2.local>
  * Added a file output and a jpeg image output 
  * Added Quixote demo apps
+ * Added command line support
+ * Added twill testing
+	***BUG*** Currently not functioning properly
+		no freaking idea why
+* Added Support for .jpg and .tiff
+* modified root directory to accept .tiff and .jpeg
 
