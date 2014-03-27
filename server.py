@@ -6,9 +6,10 @@ import urlparse
 import StringIO
 import quixote
 import imageapp
+import argparse
 
 from app import make_app
-# from quixote.demo import create_publisher
+from quixote.demo import create_publisher
 # from quixote.demo.mini_demo import create_publisher
 # from quixote.demo.altdemo import create_publisher
 # from wsgiref.validate import validator
@@ -16,30 +17,46 @@ from app import make_app
 def main():
     s = socket.socket() # Create a socket object.
     host = socket.getfqdn() # Get local machine name.
-    port = random.randint(8000, 9999) # Assign random port.
-    s.bind((host, port)) # Bind to the port.
 
-    # imageapp.setup()
-    wsgi_app = make_app() # Creates WSGI app.
-    # validate_app = validator(wsgi_app)
-    # p = create_publisher()
-    # p = imageapp.create_publisher()
-    # wsgi_app = quixote.get_wsgi_app()
+    parser = argparse.ArgumentParser() #creating a parser 
+    parser.add_argument("-A", choices=['image', 'altdemo', 'myapp'],
+            help='Choose which app you would like to run')
+    parser.add_argument("-p", type=int, help="Choose the port you would like to run on.")
+    args = parser.parse_args()
+
+    #Check to see if a port is specified
+    if args.p == None:
+        port = random.randint(8000, 9999) #Creating WSGI app
+        s.bind((host, port))
+    else:
+        port = args.p
+        s.bind((host, port))
+    if args.A == 'myapp':
+        wsgi_app = make_app()
+    elif args.A == "image":
+        imageapp.setup()
+        p = imageapp.create_publisher()
+        wsgi_app = quixote.get_wsgi_app()
+    elif args.A == "altdemo":
+        p = create_publisher()
+        wsgi_app = quixote.get_wsgi_app()
+    else:
+        wsgi_app = make_app() #In the event that no argument is passed just make my_app
 
     print 'Starting server on', host, port
     print 'The Web server URL for this would be http://%s:%d/' % (host, port)
 
-    s.listen(5) # Now wait for client connection.
+    s.listen(5) #wait for client connection
 
-    print 'Entering infinite loop; hit CTRL-C to exit'
+    print 'Entering infinite loop; hit CTRL+C to exit'
     while True:
-        # Establish connection with client.
+        #Establish a connection with the client
         c, (client_host, client_port) = s.accept()
         print 'Got connection from', client_host, client_port
         handle_connection(c, wsgi_app)
-        # handle_connection(c, validate_app)
+        #handle connection(c, validate_app)
     return
-
+    
 def handle_connection(conn, wsgi_app):
     # Read in request until end of header sentinel.
     request = ''
