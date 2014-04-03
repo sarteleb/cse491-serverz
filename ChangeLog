@@ -21,4 +21,13 @@
 		no freaking idea why
 * Added Support for .jpg and .tiff
 * modified root directory to accept .tiff and .jpeg
+# Added support for quotes add
+# Added chat app, time posts with each message
+* Project Selected was adding a thumbnail list
+	* Link added to index page that will take user to a list
+	of all uploaded images in thumbail format.
+	* Added a query "num" that grabs the image at the provided
+	number.  Then i simply added a method to return the count 
+	of the images.  In image list i just used AJAX to iterate 
+	through the list of images and display them
 
