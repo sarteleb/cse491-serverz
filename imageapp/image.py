@@ -17,3 +17,5 @@ def get_image(num):
 def get_latest_image():
     image_num = max(images.keys())
     return images[image_num]
+
+

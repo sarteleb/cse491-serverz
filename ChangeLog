@@ -30,4 +30,20 @@
 	number.  Then i simply added a method to return the count 
 	of the images.  In image list i just used AJAX to iterate 
 	through the list of images and display them
+# Project selected were projects 15 and 8
+	* project 15 has been fully implemented 
+	* users can login and logout
+	* users can also create an account
+	* only one account can be active at a time
+	* no identical accounts can be created
+	* a test user of Username Brandon Password yolo 
+	- was added for general testing purposes
+	* project 8 was minimally implemented
+	* users may comment on the "most rescent image page"
+	* users who are logged in will have their names displayed
+	* if no user is logged in comments will be anonymous
+	* comments are global for all pictures even if a
+	- new one is uploaded
+	* all functionality for both projects was implmented using
+	- quixote and basic html
 
