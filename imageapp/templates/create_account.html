@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class ="contentText">
 <h1> Account Creation Page: </h1><br>
 {{ message }}<br><br>
 
 <form action='create_login' method='GET'>
     <p>user name: <input type='text' name='username'></p>
     <p>password: <input type='text' name='password'></p>
-    <p><input type='submit' value='Submit'>
+    <p><input type='submit' value='Submit'><br>
 </form></p>
-
+<a href="/" >Return to Home Page</a>
+</div>
 {% endblock %}
