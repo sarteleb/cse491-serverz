@@ -46,4 +46,11 @@
 	- new one is uploaded
 	* all functionality for both projects was implmented using
 	- quixote and basic html
+* Projects selected were Making all data persistent and added a scoring
+feature for images
+	* Images can be upvoted/downvoted
+	* Comments and scores are now persistent
+	* cookie app functionality was also added
+	* All images should be persistent as well
+
 
