@@ -27,6 +27,11 @@ class RootDirectory(Directory):
     def upload(self):
         return html.render('upload.html')
 
+    @export(name='set')
+    def set(self):
+        response = quixote.get_response()
+        print response
+
     @export(name='upload_receive')
     def upload_receive(self):
         request = quixote.get_request()

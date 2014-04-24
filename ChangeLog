@@ -52,5 +52,8 @@ feature for images
 	* Comments and scores are now persistent
 	* cookie app functionality was also added
 	* All images should be persistent as well
+* Added ajax and an oswd templates
+	* used cameronkiefs css file
+	* all pages should no have a link to the home page as well
 
 
